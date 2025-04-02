@@ -1,1 +1,23 @@
-<h1>hello world</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Based on Location</title>
+</head>
+<body>
+    <h1>Welcome to the Website</h1>
+
+    <script>
+        fetch('https://ipapi.co/json/')
+          .then(response => response.json())
+          .then(data => {
+            if (data.region !== 'Texas') {
+              window.location.href = 'https://www.google.com';
+            }
+          })
+          .catch(error => console.error('Error fetching location:', error));
+    </script>
+</body>
+</html>
+
